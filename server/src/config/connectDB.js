@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const connectDB = async()=>{
+    try{
+        await mongoose.connect(process.env.MONGODB_URI);
+        console.log('Kết nối thành công đến MongoDB');
+    }
+    catch(error){
+        console.log('Kết nối thất bại đến MongoDB',error);
+    }
+}
+
+module.exports = connectDB;
